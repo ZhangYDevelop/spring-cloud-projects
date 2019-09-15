@@ -14,11 +14,23 @@
     <description>客户端配置</description>
 
     <dependencies>
-        <!--eureka 客户端-->
+        <!--eureka 服务发现与服务注册客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+        <!--zookeeper 服务发现与服务注册客户端 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
+        </dependency>
+
+        <!--consul 服务发现与服务注册客户端-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
+        <!--</dependency>-->
 
 
         <dependency>
