@@ -38,7 +38,7 @@ spring:
   cloud:
     zookeeper:
       enabled: true
-      connectString: 192.168.1.105:2181
+      connectString: 192.168.1.102:2181
 
 --- # Profile For Consul
 spring:
@@ -49,3 +49,12 @@ spring:
         enabled: true
         ipAddress: 127.0.0.1
         port: 8500
+
+--- # Profile For nacos
+spring:
+  profiles: nacus
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 192.168.1.102:8848
