@@ -12,3 +12,16 @@
 5.启动：consul agent -dev
 
 6.http://localhost:8500/ui/dc1/services
+
+#nacos 安装启动
+1、git clone https://github.com/alibaba/nacos.git
+
+2、cd nacos/
+
+3、mvn -Prelease-nacos clean install -U  
+
+4、cd distribution/target/nacos-server-$version/nacos/bin
+
+5、sh startup.sh -m standalone
+
+6、http://127.0.0.1:8848  username: nacos passward:nacos

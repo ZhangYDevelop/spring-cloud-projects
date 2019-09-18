@@ -6,6 +6,8 @@
     <modules>
         <module>eurekas-erver</module>
         <module>spring-client-config</module>
+        <module>nacos-consumer</module>
+        <module>eureka-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
