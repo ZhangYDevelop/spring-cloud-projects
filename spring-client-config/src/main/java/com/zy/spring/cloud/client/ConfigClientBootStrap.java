@@ -50,4 +50,9 @@ public class ConfigClientBootStrap {
                                                 .findFirst()
                                                 .orElseThrow(() ->new RuntimeException("获取数据异常"));
     }
+
+    @GetMapping(value = "/api/{name}")
+    public  String getName(@PathVariable String name ) {
+        return "hello : " + name;
+    }
 }

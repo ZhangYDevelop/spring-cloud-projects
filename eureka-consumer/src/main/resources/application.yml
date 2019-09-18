@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka-consumer
+server:
+  port: 9999
+
+
+provider:
+  name: config-client
+
+eureka:
+  server: # 官方不存在的配置（自定义配置）
+    host: 127.0.0.1
+    port: 8762
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://${eureka.server.host}:${eureka.server.port}/eureka
+    registryFetchIntervalSeconds: 5 # 5 秒轮训一次
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
