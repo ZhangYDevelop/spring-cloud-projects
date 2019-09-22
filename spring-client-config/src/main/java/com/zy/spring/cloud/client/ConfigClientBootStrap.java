@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -52,7 +53,10 @@ public class ConfigClientBootStrap {
     }
 
     @GetMapping(value = "/api/{name}")
-    public  String getName(@PathVariable String name ) {
+    public  String getName(@PathVariable String name ) throws InterruptedException {
+        int sleepTime = new Random().nextInt(3000);
+        Thread.sleep(sleepTime);
+        System.out.println("sleepTime: " + sleepTime);
         return "hello : " + name;
     }
 }
