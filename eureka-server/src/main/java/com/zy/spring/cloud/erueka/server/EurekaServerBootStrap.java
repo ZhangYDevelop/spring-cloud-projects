@@ -9,17 +9,11 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @AUTHOR zhangy
  * 2019-09-14  16:04
  */
+@EnableAutoConfiguration
+@EnableEurekaServer
 public class EurekaServerBootStrap {
 
-    @EnableAutoConfiguration
-    @EnableEurekaServer
-    public  static  class  EurekaServerConfigration {
-
-    }
-
     public static void main(String[] args) {
-
-        SpringApplication.run(EurekaServerConfigration.class, args);
-
+        SpringApplication.run(EurekaServerBootStrap.class, args);
     }
 }

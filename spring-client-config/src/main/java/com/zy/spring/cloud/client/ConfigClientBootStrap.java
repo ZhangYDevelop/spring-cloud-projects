@@ -56,7 +56,7 @@ public class ConfigClientBootStrap {
     public  String getName(@PathVariable String name ) throws InterruptedException {
         int sleepTime = new Random().nextInt(3000);
         Thread.sleep(sleepTime);
-        System.out.println("sleepTime: " + sleepTime);
+        System.out.printf("[当前线程 : %s] 当前方法执行(模型) 消耗 %d 毫秒\n", Thread.currentThread().getName(), sleepTime);
         return "hello : " + name;
     }
 }
