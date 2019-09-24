@@ -21,13 +21,13 @@ public class ClientTestController {
 
     private final Environment environment;
 
-    public ClientTestController(@Qualifier("${provider.name}") EurekServerProvider eurekServerProvider, Environment environment) {
+    public ClientTestController( EurekServerProvider eurekServerProvider, Environment environment) {
         this.eurekServerProvider = eurekServerProvider;
         this.environment = environment;
     }
 
     @HystrixCommand(defaultFallback = "fallBack")
-    @GetMapping("/aip/{name}")
+    @GetMapping("/api/{name}")
     public  String  getName(@PathVariable String name) throws InterruptedException {
         return  this.eurekServerProvider.getName(name);
     }

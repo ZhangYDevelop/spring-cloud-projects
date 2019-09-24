@@ -1,6 +1,7 @@
 package com.zy.eureka.consumer.client;
 
-import com.zy.eureka.consumer.conf.feign.ServiceProviderFallBack;
+
+import com.zy.eureka.consumer.conf.feign.fallback.ServiceProviderFallBack;
 import com.zy.eureka.consumer.conf.feign.loglevel.FeignLogLevelConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
