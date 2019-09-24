@@ -1,4 +1,4 @@
-package com.zy.eureka.consumer.conf.feign;
+package com.zy.eureka.consumer.conf;
 
 import com.zy.eureka.consumer.web.servlet.TimeOutAnnotionHanlderInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
