@@ -26,7 +26,7 @@ public class ClientTestController {
         this.environment = environment;
     }
 
-    @HystrixCommand(defaultFallback = "fallBack")
+   // @HystrixCommand(defaultFallback = "fallBack")
     @GetMapping("/api/{name}")
     public  String  getName(@PathVariable String name) throws InterruptedException {
         return  this.eurekServerProvider.getName(name);

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @AUTHOR zhangy
  * 2019-09-18  20:57
  */
-@FeignClient(name = "${provider.name}", configuration = FeignLogLevelConfiguration.class ,fallback = ServiceProviderFallBack.class  )
+@FeignClient(name = "${provider.name}", fallback = ServiceProviderFallBack.class  )
 public interface EurekServerProvider {
 
 

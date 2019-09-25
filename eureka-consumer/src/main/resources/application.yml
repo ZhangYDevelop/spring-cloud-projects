@@ -27,23 +27,38 @@ logging:
       com.zy.eureka.consumer.client.EurekServerProvider: DEBUG
 
 #ribbon 超时重试配置
-ribbon:
-  MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
-  MaxAutoRetriesNextServer: 1 #切换实例的重试次数
-  OkToRetryOnAllOperations: true
-  ReadTimeout: 1000
-  ConnectTimeout: 1000
+#ribbon:
+#  MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
+#  MaxAutoRetriesNextServer: 1 #切换实例的重试次数
+#  OkToRetryOnAllOperations: true
+#  ReadTimeout: 1000
+#  ConnectTimeout: 1000
 
 #hystrix 超时配置
-hystrix:
-  command:
-    getName:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 1000
+#hystrix:
+#  command:
+#    getName:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1000
 
 #feignClient 的超时fallback 配置
+#feign:
+#  hystrix:
+#    enabled: true
+#  client:
+#      config:
+#          default:
+#              connectTimeout: 5000
+#              readTimeout: 5000
+
 feign:
   hystrix:
     enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 1000
+        loggerLevel: full
