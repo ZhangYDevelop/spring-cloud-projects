@@ -1,14 +1,12 @@
 package com.zy.eureka.consumer.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zy.eureka.consumer.client.EurekServerProvider;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.env.Environment;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Random;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @AUTHOR zhangy
@@ -21,16 +19,19 @@ public class ClientTestController {
 
     private final Environment environment;
 
-    public ClientTestController( EurekServerProvider eurekServerProvider, Environment environment) {
+    private final RestTemplateBuilder builder;
+
+    public ClientTestController(EurekServerProvider eurekServerProvider, Environment environment, RestTemplateBuilder builder) {
         this.eurekServerProvider = eurekServerProvider;
         this.environment = environment;
+        this.builder = builder;
     }
 
    // @HystrixCommand(defaultFallback = "fallBack")
-    @GetMapping("/api/{name}")
-    public  String  getName(@PathVariable String name) throws InterruptedException {
-        return  this.eurekServerProvider.getName(name);
-    }
+//    @GetMapping("/api/{name}")
+//    public  String  getName(@PathVariable String name) throws InterruptedException {
+//        return  this.eurekServerProvider.getName(name);
+//    }
 
     public String fallBack() {
         return  "hystrix 超时 : 服务降级了";
@@ -46,4 +47,7 @@ public class ClientTestController {
     public String getServiceProt() {
         return environment.getProperty("local.server.port");
     }
+
 }
+
+
